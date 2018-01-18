@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# if [[ $# != ]]
+
+input_file="$1"
+output_file="$2"
+output_size="$3"
+
+convert -interlace Plane -gaussian-blur 0.05 -quality 85% -strip \
+            -resize $output_size \
+            "$input_file" \
+            "$output_file"
