@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+if [[ $# != 2 ]]; then
+    echo "Usage: compress-pdf <input-file> <output-file>"
+    exit -1
+fi
+
+input_file="$1"
+output_file="$2"
+
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer \
+            -dNOPAUSE -dQUIET -dBATCH -sOutputFile="$output_file" "$input_file"
