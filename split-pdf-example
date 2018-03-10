@@ -1,0 +1,1 @@
+# convert -density 150 scan01.pdf split/page-%0d.jpg
