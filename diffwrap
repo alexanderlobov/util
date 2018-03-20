@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# use vimdiff to view diffs
+DIFF="/usr/bin/vim -d -R"
+
+
+NUM=$#  # number of arguments
+LEFT=${6} # old file
+RIGHT=${7} # new file
+L_TITLE="$3 %l, %c" # actual name and revision of old file
+R_TITLE="$5 %l, %c" # actual name and revision of new file
+
+L_TITLE=`echo $L_TITLE | tr -s ' ' | sed 's/ /\\\\ /g'`
+R_TITLE=`echo $R_TITLE | tr -s ' ' | sed 's/ /\\\\ /g'`
+
+$DIFF $LEFT $RIGHT -c "setl stl=$L_TITLE | wincmd W | setl stl=$R_TITLE"
